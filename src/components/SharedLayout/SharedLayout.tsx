@@ -1,15 +1,16 @@
 import { Outlet } from "react-router-dom";
 import { Header } from "../Header/Header";
+import { Container } from "@chakra-ui/react";
 
-const SharedLayout = () => {
+export const SharedLayout = () => {
   return (
     <>
       <Header />
       <main>
-        <Outlet />
+        <Container maxW={"lg"}>
+          <Outlet />
+        </Container>
       </main>
     </>
   );
 };
-
-export default SharedLayout;
