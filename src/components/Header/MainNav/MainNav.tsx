@@ -5,7 +5,9 @@ const activeStyles = {
   color: "orange.500",
 };
 
-export const Nav = () => {
+export const MainNav: React.FC<{ isLoggedIn: boolean }> = ({
+  isLoggedIn = false,
+}) => {
   return (
     <nav>
       <List display={"flex"} flexDirection={"row"} gap={5}>
@@ -23,6 +25,17 @@ export const Nav = () => {
             Teachers
           </ChakraLink>
         </ListItem>
+        {isLoggedIn && (
+          <ListItem>
+            <ChakraLink
+              as={ReactRouterLink}
+              to="/favorites"
+              _activeLink={activeStyles}
+            >
+              Favorites
+            </ChakraLink>
+          </ListItem>
+        )}
       </List>
     </nav>
   );
