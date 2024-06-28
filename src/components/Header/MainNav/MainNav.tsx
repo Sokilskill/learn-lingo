@@ -1,41 +1,49 @@
 import { NavLink as ReactRouterLink } from "react-router-dom";
 import { Link as ChakraLink, List, ListItem } from "@chakra-ui/react";
 
+interface MainNavProps {
+  isLoggedIn: boolean;
+  onCloseMenu?: () => void;
+}
 const activeStyles = {
   color: "orange.500",
 };
 
-export const MainNav: React.FC<{ isLoggedIn: boolean }> = ({
+const mainNavList = [
+  { title: "Home", to: "/", secure: false },
+  { title: "Teachers", to: "/teachers", secure: false },
+  { title: "Favorites", to: "/favorites", secure: true },
+];
+
+export const MainNav: React.FC<MainNavProps> = ({
   isLoggedIn = false,
+  onCloseMenu,
 }) => {
   return (
     <nav>
-      <List display={"flex"} flexDirection={"row"} gap={5}>
-        <ListItem>
-          <ChakraLink as={ReactRouterLink} to={"/"} _activeLink={activeStyles}>
-            Home
-          </ChakraLink>
-        </ListItem>
-        <ListItem>
-          <ChakraLink
-            as={ReactRouterLink}
-            to="/teachers"
-            _activeLink={activeStyles}
-          >
-            Teachers
-          </ChakraLink>
-        </ListItem>
-        {isLoggedIn && (
-          <ListItem>
-            <ChakraLink
-              as={ReactRouterLink}
-              to="/favorites"
-              _activeLink={activeStyles}
-            >
-              Favorites
-            </ChakraLink>
-          </ListItem>
-        )}
+      <List
+        display={"flex"}
+        flexDirection={{ base: "column", lg: "row" }}
+        gap={5}
+      >
+        {mainNavList.map((navItem) => {
+          const noSecureItem = !navItem.secure;
+
+          return (
+            (noSecureItem || isLoggedIn) && (
+              <ListItem key={navItem.to}>
+                <ChakraLink
+                  as={ReactRouterLink}
+                  to={navItem.to}
+                  _activeLink={activeStyles}
+                  onClick={onCloseMenu}
+                >
+                  {navItem.title}
+                </ChakraLink>
+              </ListItem>
+            )
+          );
+        })}
       </List>
     </nav>
   );
