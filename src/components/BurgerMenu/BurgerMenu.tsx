@@ -1,3 +1,4 @@
+import { FC } from "react";
 import {
   Center,
   Drawer,
@@ -7,14 +8,9 @@ import {
   DrawerOverlay,
 } from "@chakra-ui/react";
 import { Logo } from "../Logo/Logo";
+import { BurgerMenuProps } from "../../types";
 
-interface BurgerMenuProps {
-  children?: React.ReactNode;
-  isOpen: boolean;
-  onClose: () => void;
-}
-
-export const BurgerMenu: React.FC<BurgerMenuProps> = ({
+export const BurgerMenu: FC<BurgerMenuProps> = ({
   isOpen,
   onClose,
   children,
