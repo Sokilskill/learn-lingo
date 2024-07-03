@@ -7,7 +7,7 @@ export const SharedLayout = () => {
     <>
       <Header />
       <main>
-        <Container maxW={"lg"}>
+        <Container as="section" maxW={"container.xl"} py={"20px"}>
           <Outlet />
         </Container>
       </main>
