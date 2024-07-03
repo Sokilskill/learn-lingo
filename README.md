@@ -1,30 +1,49 @@
-# React + TypeScript + Vite
+# Language Learning App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Це веб-застосунок для компанії, що пропонує онлайн послуги з вивчення мов за допомогою професійних викладачів.
 
-Currently, two official plugins are available:
+## Зміст
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. [Функціональність](#функціональність)
+2. [Встановлення та налаштування](#встановлення-та-налаштування)
+3. [Використання](#використання)
+4. [Використані технології](#використані-технології)
 
-## Expanding the ESLint configuration
+## Функціональність
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. **Головна сторінка**:
 
-- Configure the top-level `parserOptions` property like this:
+   - Відображає переваги компанії.
+   - Містить кнопку, що перенаправляє на сторінку “Teachers”.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+2. **Сторінка викладачів**:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+   - Перелік доступних викладачів з можливістю фільтрування за мовою, рівнем знань учнів та ціною за годину занять.
+
+3. **Сторінка обраних**:
+   - Доступна для авторизованих користувачів.
+   - Відображає викладачів, доданих користувачем в обрані.
+
+## Встановлення та налаштування
+
+1. Встановіть залежності:
+2. Додайте конфігурацію Firebase до проекту.
+3. Запустіть сервер розробки:
+
+## Використання
+
+- Перейдіть на Головну сторінку, щоб побачити переваги компанії, та натисніть кнопку заклику до дії для початку вивчення викладачів.
+- На сторінці викладачів можна фільтрувати викладачів за мовою, рівнем та ціною.
+- Увійдіть або зареєструйтесь для додавання викладачів в обрані. Перейдіть на сторінку обраних для перегляду ваших улюблених викладачів.
+- Натисніть на кнопку-серце для додавання/видалення викладачів з обраних та кнопку “Read more” для розширення деталей.
+- Бронюйте пробне заняття, натиснувши кнопку “Book trial lesson” та заповнивши форму бронювання.
+
+## Використані технології
+
+- React
+- Chakra UI
+- React Router
+- React Icons
+- Firebase (Authentication та Realtime Database)
+- react-hook-form
+- yup
